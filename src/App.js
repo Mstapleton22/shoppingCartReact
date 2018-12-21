@@ -25,30 +25,37 @@ class App extends Component {
       ],
       cart: [],
       newItemName: '',
-      newItemPrice: 0
+      newItemPrice: 0,
+      newItemQuantity: 0
     }
   }
   addClick = (event) => {
     event.preventDefault()
-    console.log(event.target)
+    // console.log(event.target)
     this.setState({
 
     })
   }
-
-
   updateList = (event) => {
-    event.preventDefault()
-    console.log(event.target.value)
+    // event.preventDefault()
+    // console.log(event.target.value)
     let filtered = this.state.dropDown.filter((item) => {
       return item.name === event.target.value
     })
-    console.log(filtered)
+    // console.log(filtered)
     this.setState({
       newItemName: event.target.value,
       newItemPrice: (filtered[0].priceInCents / 100)
     })
-    console.log(this.setState)
+    // console.log(this.setState)
+  }
+
+  updateQuantity = (event) => {
+    event.preventDefault()
+    console.log(event.target.value)
+    this.setState({
+      newItemQuantity: event.target.value
+    })
   }
 
   render() {
@@ -68,6 +75,7 @@ class App extends Component {
         <AddItem
           dropDown={this.state.dropDown}
           updateList={this.updateList}
+          updateQuantity={this.updateQuantity}
           addClick={this.addClick}
         />
         <CartFooter copyright={'2016'} />

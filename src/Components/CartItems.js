@@ -4,7 +4,7 @@ import CartItem from './CartItem.js'
 class CartItems extends Component {
 
   render() {
-    console.log(this.props.cartItems)
+    // console.log(this.props.cartItems)
     return (
       <div className="container">
         <h1>Cart Items</h1>
