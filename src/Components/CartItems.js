@@ -4,7 +4,7 @@ import CartItem from './CartItem.js'
 class CartItems extends Component {
 
   render() {
-    // console.log(this.props.cartItems)
+    console.log(this.props.cartItems)
     return (
       <div className="container">
         <h1>Cart Items</h1>
@@ -20,8 +20,8 @@ class CartItems extends Component {
             return <CartItem
               key={idx}
               product={item.product.name}
-              price={item.product.priceInCents / 100}
-              quantity={item.quantity}
+              price={item.product.price}
+              quantity={item.product.quantity}
             />
           })
           }
