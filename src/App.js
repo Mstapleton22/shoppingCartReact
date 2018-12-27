@@ -71,9 +71,6 @@ class App extends Component {
         <CartItems
           cartItems={this.state.cartItemsList}
         />
-        {/* <Total
-
-        /> */}
         <AddItem
           dropDown={this.state.dropDown}
           updateList={this.updateList}

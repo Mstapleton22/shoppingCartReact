@@ -6,7 +6,6 @@ class AddItem extends Component {
     return (
       <div className="container">
         <form onSubmit={this.props.addClick}>
-          {/* {console.log(this.props.addClick)} */}
           <div className="form-group">
             <div>
               <label htmlFor="dropDownList">Products: </label>
