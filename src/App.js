@@ -4,9 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import CartHeader from './Components/CartHeader.js'
 import CartFooter from './Components/CartFooter.js'
 import CartItems from './Components/CartItems.js'
-import CartItem from './Components/CartItem.js'
 import AddItem from './Components/AddItem.js'
-// import Total from './Components/Total.js'
 
 class App extends Component {
 
