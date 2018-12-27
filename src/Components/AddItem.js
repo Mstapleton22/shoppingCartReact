@@ -6,7 +6,7 @@ class AddItem extends Component {
     return (
       <div className="container">
         <form onSubmit={this.props.addClick}>
-          {console.log(this.props.addClick)}
+          {/* {console.log(this.props.addClick)} */}
           <div className="form-group">
             <label htmlFor="dropDownList">Products</label>
             <select onChange={this.props.updateList} id="dropDownList">
@@ -20,6 +20,7 @@ class AddItem extends Component {
             </select>
             <label className="" htmlFor="quantity">Quantity</label>
             <input type="number" id="quantity" className="form-control col-md-12" onChange={this.props.updateQuantity} required></input>
+            <h3>Total Price: ${this.props.total}</h3>
           </div>
           <button className="btn btn-primary btn-lg btn-block" type="submit">Add Item</button>
         </form>

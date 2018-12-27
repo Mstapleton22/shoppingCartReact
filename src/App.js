@@ -6,6 +6,7 @@ import CartFooter from './Components/CartFooter.js'
 import CartItems from './Components/CartItems.js'
 import CartItem from './Components/CartItem.js'
 import AddItem from './Components/AddItem.js'
+// import Total from './Components/Total.js'
 
 class App extends Component {
 
@@ -26,7 +27,8 @@ class App extends Component {
       cartItemsList: [],
       newItemName: '',
       newItemPrice: 0,
-      newItemQuantity: 0
+      newItemQuantity: 0,
+      totalSum: 0
     }
   }
 
@@ -39,8 +41,13 @@ class App extends Component {
         quantity: this.state.newItemQuantity
       }
     }
+    const cartItemsList = [...cartItemsList, newItem]
+    let total = this.state.totalSum
+    total += (cartItemsList[cartItemsList.length - 1].priceInCents * cartItemsList[cartItemsList.length - 1].quantity)
+    console.log(total)
     this.setState({
-      cartItemsList: this.state.cartItemsList.concat([newItem])
+      cartItemsList: this.state.cartItemsList.concat([newItem]),
+      total: this.state.totalSum
     })
   }
 
@@ -53,7 +60,7 @@ class App extends Component {
     // console.log(filtered)
     this.setState({
       newItemName: event.target.value,
-      newItemPrice: (filtered[0].priceInCents / 100)
+      newItemPrice: (filtered[0].priceInCents / 100).toFixed(2)
     })
     // console.log(this.setState)
   }
@@ -82,6 +89,7 @@ class App extends Component {
           updateList={this.updateList}
           updateQuantity={this.updateQuantity}
           addClick={this.addClick}
+          total={this.state.total}
         />
         <CartFooter copyright={'2016'} />
       </div >
