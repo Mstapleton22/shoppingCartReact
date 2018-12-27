@@ -28,7 +28,8 @@ class App extends Component {
       newItemName: '',
       newItemPrice: 0,
       newItemQuantity: 0,
-      totalSum: 0
+      totalSum: 0,
+      itemTotal: 0
     }
   }
 
@@ -44,7 +45,7 @@ class App extends Component {
     }
     this.setState({
       cartItemsList: [...this.state.cartItemsList, newItem],
-      totalSum: this.state.totalSum + newItem.itemTotal
+      totalSum: (this.state.totalSum + newItem.product.itemTotal).toFixed(2)
     })
   }
 
@@ -66,7 +67,6 @@ class App extends Component {
   }
 
   render() {
-
     return (
       <div className="App" >
         <CartHeader />
@@ -85,6 +85,7 @@ class App extends Component {
         />
         <CartFooter copyright={'2016'} />
       </div >
+
     );
   }
 }
