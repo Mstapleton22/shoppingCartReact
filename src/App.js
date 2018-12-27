@@ -38,36 +38,29 @@ class App extends Component {
       product: {
         name: this.state.newItemName,
         price: this.state.newItemPrice,
-        quantity: this.state.newItemQuantity
+        quantity: this.state.newItemQuantity,
+        itemTotal: Number(((this.state.quantity * this.state.price)).toFixed(2))
       }
     }
-    const cartItemsList = [...cartItemsList, newItem]
-    let total = this.state.totalSum
-    total += (cartItemsList[cartItemsList.length - 1].priceInCents * cartItemsList[cartItemsList.length - 1].quantity)
-    console.log(total)
     this.setState({
-      cartItemsList: this.state.cartItemsList.concat([newItem]),
-      total: this.state.totalSum
+      cartItemsList: [...this.state.cartItemsList, newItem],
+      totalSum: this.state.totalSum + newItem.itemTotal
     })
   }
 
   updateList = (event) => {
-    // event.preventDefault()
-    // console.log(event.target.value)
+
     let filtered = this.state.dropDown.filter((item) => {
       return item.name === event.target.value
     })
-    // console.log(filtered)
     this.setState({
       newItemName: event.target.value,
       newItemPrice: (filtered[0].priceInCents / 100).toFixed(2)
     })
-    // console.log(this.setState)
   }
 
   updateQuantity = (event) => {
     event.preventDefault()
-    // console.log(event.target.value)
     this.setState({
       newItemQuantity: event.target.value
     })
@@ -76,7 +69,7 @@ class App extends Component {
   render() {
 
     return (
-      <div className="App">
+      <div className="App" >
         <CartHeader />
         <CartItems
           cartItems={this.state.cartItemsList}
@@ -89,7 +82,7 @@ class App extends Component {
           updateList={this.updateList}
           updateQuantity={this.updateQuantity}
           addClick={this.addClick}
-          total={this.state.total}
+          total={this.state.totalSum}
         />
         <CartFooter copyright={'2016'} />
       </div >
