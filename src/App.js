@@ -39,7 +39,7 @@ class App extends Component {
         name: this.state.newItemName,
         price: this.state.newItemPrice,
         quantity: this.state.newItemQuantity,
-        itemTotal: Number(((this.state.quantity * this.state.price)).toFixed(2))
+        itemTotal: Number((this.state.newItemQuantity * this.state.newItemPrice).toFixed(2))
       }
     }
     this.setState({
@@ -49,20 +49,19 @@ class App extends Component {
   }
 
   updateList = (event) => {
-
     let filtered = this.state.dropDown.filter((item) => {
       return item.name === event.target.value
     })
     this.setState({
       newItemName: event.target.value,
-      newItemPrice: (filtered[0].priceInCents / 100).toFixed(2)
+      newItemPrice: Number((filtered[0].priceInCents / 100).toFixed(2))
     })
   }
 
   updateQuantity = (event) => {
     event.preventDefault()
     this.setState({
-      newItemQuantity: event.target.value
+      newItemQuantity: event.target.valueAsNumber
     })
   }
 
