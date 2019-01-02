@@ -41,9 +41,10 @@ class App extends Component {
         itemTotal: Number((this.state.newItemQuantity * this.state.newItemPrice).toFixed(2))
       }
     }
+    let totalSum = this.state.totalSum
     this.setState({
       cartItemsList: [...this.state.cartItemsList, newItem],
-      totalSum: this.state.totalSum += newItem.product.itemTotal
+      totalSum: totalSum += newItem.product.itemTotal
     })
   }
 
