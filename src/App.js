@@ -59,7 +59,6 @@ class App extends Component {
   }
 
   updateQuantity = (event) => {
-    event.preventDefault()
     this.setState({
       newItemQuantity: event.target.valueAsNumber
     })
