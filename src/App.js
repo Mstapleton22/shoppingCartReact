@@ -38,13 +38,13 @@ class App extends Component {
         name: this.state.newItemName,
         price: this.state.newItemPrice,
         quantity: this.state.newItemQuantity,
-        itemTotal: Number((this.state.newItemQuantity * this.state.newItemPrice).toFixed(2))
+        itemTotal: Number((this.state.newItemQuantity * this.state.newItemPrice))
       }
     }
     let totalSum = this.state.totalSum
     this.setState({
       cartItemsList: [...this.state.cartItemsList, newItem],
-      totalSum: totalSum += newItem.product.itemTotal
+      totalSum: totalSum + newItem.product.itemTotal
     })
   }
 
@@ -54,7 +54,7 @@ class App extends Component {
     })
     this.setState({
       newItemName: event.target.value,
-      newItemPrice: Number((filtered[0].priceInCents / 100).toFixed(2))
+      newItemPrice: Number((filtered[0].priceInCents / 100))
     })
   }
 
